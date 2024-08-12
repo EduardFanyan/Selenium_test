@@ -35,7 +35,7 @@ class MainPage(Base):
         self.get_cart().click()
         print('Жму на корзину')
 
-    # Метод авторизации
+    # Метод добавления в корзину и переход в нее
 
     def select_product(self):
         self.get_current_url()
