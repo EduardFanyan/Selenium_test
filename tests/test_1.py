@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 
 from pages.cart_pages import CartPage
+from pages.client_information_pages import ClientInformationPage
 from pages.login_pages import LoginPage
 from pages.main_pages import MainPage
 
@@ -21,3 +22,5 @@ def test_11():
     mp.select_product()
     cp = CartPage(driver)
     cp.product_confirmation()
+    cip = ClientInformationPage(driver)
+    cip.input_information()

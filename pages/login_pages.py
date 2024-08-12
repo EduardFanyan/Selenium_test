@@ -46,7 +46,7 @@ class LoginPage(Base):
 
     def click_button_login(self):
         self.get_button_login().click()
-        print('Жмием залогиниться')
+        print('Жмем залогиниться')
 
     # Метод авторизации
 
