@@ -1,3 +1,4 @@
+import datetime
 
 
 class Base():
@@ -19,3 +20,10 @@ class Base():
         value_word = word.text
         assert value_word == result, 'Слово не найдено'
         print("Слово найдено")
+
+    """Метод Скриншот"""
+
+    def get_screenshot(self):
+        now_date = datetime.datetime.today().strftime("%Y.%m.%d-%H.%M.%S")
+        name_screenshot = 'screenshot' + now_date + '.png'
+        self.driver.save_screenshot("M:\\Proect_testi__\\Selenium_test\\screen\\" + name_screenshot)
