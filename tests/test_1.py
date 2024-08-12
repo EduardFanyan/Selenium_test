@@ -1,7 +1,8 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 
-from pages.login_pages import Login_page
+from pages.login_pages import LoginPage
+from pages.main_pages import MainPage
 
 
 def test_11():
@@ -13,5 +14,7 @@ def test_11():
 
     print('Старт теста')
 
-    login = Login_page(driver)
+    login = LoginPage(driver)
     login.authorization()
+    mp = MainPage(driver)
+    mp.select_product()

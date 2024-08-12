@@ -6,8 +6,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from base.base_class import Base
 
 
-class Login_page(Base):
-
+class LoginPage(Base):
     url = 'https://www.saucedemo.com/'
 
     def __init__(self, driver):
@@ -19,6 +18,7 @@ class Login_page(Base):
     user_name = "//*[@id='user-name']"
     password = "//*[@id='password']"
     login_button = "//*[@id='login-button']"
+    main_word = "//span[@class='title']"
 
     # Методы
 
@@ -30,6 +30,9 @@ class Login_page(Base):
 
     def get_button_login(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.login_button)))
+
+    def get_main_word(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.main_word)))
 
     # Действия
 
@@ -45,12 +48,13 @@ class Login_page(Base):
         self.get_button_login().click()
         print('Жмием залогиниться')
 
-
-    #Метод авторизации
+    # Метод авторизации
 
     def authorization(self):
         self.driver.get(self.url)
         self.driver.maximize_window()
+        self.get_current_url()
         self.input_password('secret_sauce')
         self.input_user_name('standard_user')
         self.click_button_login()
+        self.assert_word(self.get_main_word(), 'Products')
