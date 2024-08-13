@@ -9,7 +9,7 @@ from pages.main_pages import MainPage
 from pages.payment_page import PaymentPage
 
 
-def test_11():
+def test_2_link_about():
     service = Service(executable_path=r'C:\Users\Edward\Desktop\driver\chromedriver.exe')
     options = webdriver.ChromeOptions()
     options.add_experimental_option("detach", True)
@@ -20,14 +20,7 @@ def test_11():
 
     login = LoginPage(driver)
     login.authorization()
+
     mp = MainPage(driver)
-    mp.select_product()
-    cp = CartPage(driver)
-    cp.product_confirmation()
-    cip = ClientInformationPage(driver)
-    cip.input_information()
-    p = PaymentPage(driver)
-    p.payment()
-    f = FinishPage(driver)
-    f.finish()
-    driver.close()
+    mp.select_menu_about()
+

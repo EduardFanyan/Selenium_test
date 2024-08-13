@@ -27,3 +27,10 @@ class Base():
         now_date = datetime.datetime.today().strftime("%Y.%m.%d-%H.%M.%S")
         name_screenshot = 'screenshot' + now_date + '.png'
         self.driver.save_screenshot("M:\\Proect_testi__\\Selenium_test\\screen\\" + name_screenshot)
+
+    """Метод проверки URL"""
+
+    def assert_url(self, result):
+        get_url = self.driver.current_url
+        assert get_url == result
+        print("URL Получен")
