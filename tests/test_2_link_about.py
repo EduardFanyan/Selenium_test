@@ -9,18 +9,16 @@ from pages.main_pages import MainPage
 from pages.payment_page import PaymentPage
 
 
-def test_2_link_about():
+def test_2_link_about(set_up, set_group):
     service = Service(executable_path=r'C:\Users\Edward\Desktop\driver\chromedriver.exe')
     options = webdriver.ChromeOptions()
     options.add_experimental_option("detach", True)
     options.add_experimental_option('excludeSwitches', ['enable-logging'])
     driver = webdriver.Chrome(service=service, options=options)
 
-    print('Старт теста')
-
     login = LoginPage(driver)
     login.authorization()
 
     mp = MainPage(driver)
     mp.select_menu_about()
-
+    driver.close()
